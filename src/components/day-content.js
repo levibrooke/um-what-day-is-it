@@ -1,23 +1,27 @@
 import React from "react";
+import ReactPlayer from "react-player";
 
 const dayContent = (props) => {
-  const data = props.data;
   const dayOfWeek = props.todayIs.toUpperCase();
-  console.log('data', data);
-  console.log('dayOfWeek', dayOfWeek);
+  const todaysContent = props.data;
+  const mediaType = todaysContent.mediatype;
+  const message = todaysContent.message;
 
-  // filter by day, only keep the day
-  const filteredData = data.filter(content => content.node.dayofweek.toUpperCase() == dayOfWeek);
-  console.log('filteredData', filteredData);
-
-  // randomly select
-  const randomIndex = Math.floor(Math.random() * filteredData.length);
-  console.log('randomIndex', randomIndex);
+  let media;
+  if (mediaType === "image") {
+    media = <img src={todaysContent.medialink} alt={todaysContent.alt} />
+  } else if (mediaType === "video") {
+    media = <ReactPlayer
+              controls={true}
+              url={todaysContent.medialink}
+            />;
+  }
 
   return (
     <>
       <h2>{dayOfWeek}</h2>
-      {/* media */}
+      {media}
+      <p>{message}</p>
     </>
   )
 
