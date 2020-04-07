@@ -20,7 +20,9 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
-    "react-player": "^1.15.3"
+    "react-player": "^1.15.3",
+    "typeface-open-sans": "0.0.75",
+    "typeface-ultra": "0.0.72"
   },
   "devDependencies": {
     "dotenv": "^8.2.0",
