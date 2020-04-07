@@ -43,7 +43,7 @@ const Layout = (props) => {
       {props.showHeader &&
         <footer className={props.isLastContent ? "stick" : null}>
           <div className="footer-left">
-            <p>Inspired by a text from <a href="http://www.rossiestearns.com/" target="_blank" rel="noopener noreferrer">Rossie Jo Stearns</a></p>
+            <p>Inspired by a text from <a href="http://www.rossiestearns.com/" target="_blank" rel="noopener noreferrer">Rossie Stearns</a></p>
             <p>Built by <a href="https://levibrooke.com" target="_blank" rel="noopener noreferrer">Levi Porter</a> on a Sunday</p>
           </div>
           <div className="footer-right">
