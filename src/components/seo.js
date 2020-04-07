@@ -70,6 +70,15 @@ function SEO({ description, lang, meta, title }) {
       ].concat(meta)}
     >
       <link rel="icon" href="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/237/thinking-face_1f914.png" />
+      <script>{`
+        !function(g,s,q,r,d){r=g[r]=g[r]||function(){(r.q=r.q||[]).push(
+        arguments)};d=s.createElement(q);q=s.getElementsByTagName(q)[0];
+        d.src='//d1l6p2sc9645hc.cloudfront.net/tracker.js';q.parentNode.
+        insertBefore(d,q)}(window,document,'script','_gs');
+
+        _gs('GSN-769545-D');
+        _gs('set', 'anonymizeIP', true);
+      `}</script>
     </Helmet>
   )
 }
