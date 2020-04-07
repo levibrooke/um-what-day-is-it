@@ -10,6 +10,13 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/images`,
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -22,6 +29,7 @@ module.exports = {
         theme_color: `#663399`,
         theme_color_in_head: false,
         display: `default`,
+        icon: `src/images/favicon.png`
       },
     },
     {
@@ -36,8 +44,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-gosquared`,
       options: {
-        token: "GSN-769545-D",
-        anonymizeIP: true
+        token: "GSN-769545-D"
       },
     }
     // this (optional) plugin enables Progressive Web App + Offline functionality
