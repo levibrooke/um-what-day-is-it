@@ -32,11 +32,13 @@ class IndexPage extends Component {
   }
 
   filterContent = (data) => {
-    // const data = this.props.data.allGoogleSheetSheet1Row.edges;
     const dayOfWeek = this.state.todayIs.toUpperCase();
 
     // filter by day, only keep the day
     const filteredData = data.filter(content => content.node.dayofweek.toUpperCase() === dayOfWeek);
+
+    // let's save all of today's content in state
+    this.setState({ savedContent: filteredData });
 
     // randomly select content
     const randomIndex = Math.floor(Math.random() * filteredData.length);
@@ -67,34 +69,44 @@ class IndexPage extends Component {
     }
   }
 
+  reset = () => {
+    this.setState({ isBingo: false, isLastContent: false });
+    this.filterContent(this.state.savedContent);
+  }
+
   render() {
     if (this.state.isLastContent) {
       return (
-        <Layout>
+        <Layout showHeader={this.state.isBingo} reset={this.reset} isLastContent={this.state.isLastContent}>
           <SEO title="Home" />
 
-          <h1>That's all folks!</h1>
+          <main className="end">
+            <div className="end-container">
+              <h2>Check back tomorrow and find out what day it is.</h2>
+              {/* <h3>I wonder what it'll be 🤔</h3> */}
+            </div>
+          </main>
 
         </Layout>
       )
     } else {
       return (
-        <Layout>
+        <Layout showHeader={this.state.isBingo} reset={this.reset}>
           <SEO title="Home" />
           {
             this.state.isBingo ?
-              <>
+              <main className="content">
                 <DayContent
                   data={this.state.currentContent.node}
                   todayIs={this.state.todayIs}
                 />
-                <button id="" onClick={this.getRandomContent}>Show me another!</button>
-              </>
+                <button id="" onClick={this.getRandomContent}>Show me another</button>
+              </main>
               :
-              <>
+              <main>
                 <h1>Um What Day Is It?</h1>
-                <button id="" onClick={this.bingoBango}>Let's find out!</button>
-              </>
+                <button id="" onClick={this.bingoBango}>Let's find out</button>
+              </main>
           }
         </Layout>
       )
