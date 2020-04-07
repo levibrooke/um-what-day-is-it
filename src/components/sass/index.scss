@@ -1,0 +1,260 @@
+@import "reset";
+@import "colors";
+
+body, html {
+  background-color: $primary-light-3;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+.splash-container {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  height: 100vh;
+  width: 80%;
+  margin: 0 10%;
+}
+
+.container {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  width: 80%;
+  max-width: 100%;
+  margin: 0 10%;
+}
+
+header {
+  height: 80px;
+  width: auto;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 40px;
+
+  h1 a {
+    font-size: 22px;
+    font-family: 'Ultra', serif;
+    color: $primary-dark-3;
+    text-decoration: none;
+  }
+  
+  button {
+    font-size: 22px;
+    font-family: 'Ultra', serif;
+    color: $primary-dark-3;
+    text-decoration: none;
+    cursor: pointer;
+    background: none;
+    border: none;
+  }
+}
+
+.content {
+  min-height: 600px;
+}
+
+main {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  margin-bottom: 80px;
+
+  h1 {
+    font-family: 'Ultra', serif;
+    font-size: 4em;
+    color: $primary-dark-3;
+    margin-bottom: 40px;
+  }
+
+  .intro-container {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+
+  h3 {
+    font-family: 'Open Sans', sans-serif;
+    color: $secondary-dark-3;
+    margin-bottom: 20px;
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  h2 {
+    font-family: 'Ultra', serif;
+    font-size: 3em;
+    color: $secondary-dark-3;
+  }
+
+  .media-container {
+    margin-bottom: 40px;
+    width: 640px;
+    height: auto;
+    text-align: center;
+
+    .video {
+      position: relative;
+      padding-top: 56.25%; /* 720 / 1280 = 0.5625 */
+    }
+  }
+
+  .message-container {
+    margin-bottom: 40px;
+    width: 600px;
+
+    p {
+      font-family: 'Open Sans', sans-serif;
+      color: $secondary-dark-3;
+      line-height: 24px;
+      font-weight: 600;
+    }
+  }
+
+  button {
+    background: none;
+    color: $secondary-dark-3;
+    border: 3px solid $secondary-dark-3;
+    padding: 8px 20px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  
+  button:hover {
+    background: $secondary-dark-3;
+    color: $primary-light-3;
+    border: 3px solid $secondary-dark-3;
+    cursor: pointer;
+  }
+}
+
+footer {
+  height: 120px;
+  width: auto;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+
+  .footer-left, .footer-right {
+    width: 300px;
+    
+    p {
+      font-family: 'Open Sans', sans-serif;
+      color: $primary-dark-3;
+      font-size: 14px;
+      margin-bottom: 14px;
+      line-height: 20px
+    }
+
+    a {
+      color: $primary-dark-3;
+    }
+    a:hover {
+      cursor: pointer;
+    }
+  }
+
+  .footer-right {
+    text-align: right;
+  }
+}
+
+footer.stick {
+  left: 0;
+  bottom: 0;
+  left: 0;
+  bottom: 0;
+  width: 80%;
+  margin: 0 10%;
+  position: fixed;
+}
+
+.end {
+
+  .end-container {
+    width: 600px;
+  }
+
+  h2 {
+    font-family: 'Ultra', serif;
+    font-size: 3em;
+    margin-bottom: 20px;
+  }
+}
+
+.react-player {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+@media only screen and (max-width: 1024px) {
+  main {
+    h1 {
+      font-family: 'Ultra', serif;
+      font-size: 3em;
+      color: $primary-dark-3;
+      margin-bottom: 40px;
+    }
+  }
+
+  .splash-container {
+    height: 100vh;
+    // width: 100%;
+    margin: 0 auto;
+  }
+
+  .container {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .content {
+    min-height: 400px;
+  }
+
+  .end {
+  
+    .end-container {
+      margin-bottom: 40px;
+      width: 100%;
+    }
+  
+    h2 {
+      font-family: 'Ultra', serif;
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  main {
+    .media-container {
+      margin-bottom: 40px;
+      width: 100%;
+    }
+  
+    .message-container {
+      margin-bottom: 40px;
+      width: 100%;
+    }
+  }
+
+  footer {
+    height: auto;
+
+    .footer-right {
+      text-align: left;
+    }
+  }
+}
