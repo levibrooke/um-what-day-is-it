@@ -78,7 +78,7 @@ class IndexPage extends Component {
     if (this.state.isLastContent) {
       return (
         <Layout showHeader={this.state.isBingo} reset={this.reset} isLastContent={this.state.isLastContent}>
-          <SEO title="Home" />
+          <SEO title="Um What Day Is It" />
 
           <main className="end">
             <div className="end-container">
