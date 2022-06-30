@@ -1,6 +1,6 @@
 import React from "react";
 import ReactPlayer from "react-player";
-import TweetEmbed from "react-tweet-embed";
+import TweetEmbed from "react-tweet-embed"; 
 
 const dayContent = (props) => {
   const dayOfWeek = props.todayIs;
@@ -23,7 +23,7 @@ const dayContent = (props) => {
       </div>;
   } else if (mediaType === "twitter-embed") {
     let tweetId = todaysContent.medialink.slice(1, -1);
-    media = <TweetEmbed id={tweetId} placeholder={'loading'} />;
+    media = <TweetEmbed tweetId={tweetId} />;
   }
 
   return (

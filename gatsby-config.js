@@ -1,6 +1,12 @@
-const dotenv = require(`dotenv`);
+/**
+ * Configure your Gatsby site with this file.
+ *
+ * See: https://www.gatsbyjs.com/docs/gatsby-config/
+ */
 
-dotenv.config();
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
 
 module.exports = {
   siteMetadata: {
@@ -10,13 +16,6 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
-      },
-    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -28,21 +27,25 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         theme_color_in_head: false,
-        display: `default`,
-        icon: `src/images/favicon.png`
+        display: `standalone`,
+        icon: `static/favicon.png`
       },
     },
     {
-      resolve: "gatsby-source-google-sheets",
+      resolve: "gatsby-source-google-spreadsheets",
       options: {
           spreadsheetId: `${process.env.SPREADSHEET_ID}`,
           worksheetTitle: `Sheet1`,
           credentials: JSON.parse(`${process.env.CREDS}`)
       }
     },
-    `gatsby-plugin-sass`,
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
-  ],
+    {
+      resolve: `gatsby-plugin-sass`,
+      options: {
+        sassOptions: {
+          includePaths: ["src/sass"],
+        }
+      },
+    }
+  ]
 }

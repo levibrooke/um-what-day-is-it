@@ -27,7 +27,7 @@ class IndexPage extends Component {
     event.preventDefault();
     this.setState({ isBingo: true });
 
-    const data = this.props.data.allGoogleSheetSheet1Row.edges;
+    const data = this.props.data.allGoogleSheet1Sheet.edges;
     this.filterContent(data);
   }
 
@@ -35,7 +35,7 @@ class IndexPage extends Component {
     const dayOfWeek = this.state.todayIs.toUpperCase();
 
     // filter by day, only keep the day
-    const filteredData = data.filter(content => content.node.dayofweek.toUpperCase() === dayOfWeek);
+    const filteredData = data.filter(content => content.node.dayOfWeek.toUpperCase() === dayOfWeek);
 
     // let's save all of today's content in state
     this.setState({ savedContent: filteredData });
@@ -119,15 +119,15 @@ export default IndexPage;
 // GraphQL query to our spreadsheet
 export const query = graphql`
 query {
-  allGoogleSheetSheet1Row {
+  allGoogleSheet1Sheet {
     edges {
       node {
         id
-        dayofweek
-        medialink
-        mediatype
-        alt
+        dayOfWeek
+        mediaLink
+        mediaType
         message
+        alt
       }
     }
   }
