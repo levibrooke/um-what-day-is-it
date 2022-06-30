@@ -5,12 +5,12 @@ import TweetEmbed from "react-tweet-embed";
 const dayContent = (props) => {
   const dayOfWeek = props.todayIs;
   const todaysContent = props.data;
-  const mediaType = todaysContent.mediatype;
+  const mediaType = todaysContent.mediaType;
   const message = todaysContent.message;
 
   let media;
   if (mediaType === "image") {
-    media = <img src={todaysContent.medialink} alt={todaysContent.alt} />
+    media = <img src={todaysContent.mediaLink} alt={todaysContent.alt} />
   } else if (mediaType === "video") {
     media = <div className="video">
         <ReactPlayer
@@ -18,11 +18,11 @@ const dayContent = (props) => {
           className="react-player"
           width="100%"
           height="100%"
-          url={todaysContent.medialink}
+          url={todaysContent.mediaLink}
         />
       </div>;
   } else if (mediaType === "twitter-embed") {
-    let tweetId = todaysContent.medialink.slice(1, -1);
+    let tweetId = todaysContent.mediaLink.slice(1, -1);
     media = <TweetEmbed tweetId={tweetId} />;
   }
 
