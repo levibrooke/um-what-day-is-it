@@ -13,7 +13,7 @@ import Header from "./header"
 
 import "typeface-ultra";
 import "typeface-open-sans";
-import "./sass/index.scss"
+import "../sass/index.scss"
 
 const Layout = (props) => {
   const data = useStaticQuery(graphql`
