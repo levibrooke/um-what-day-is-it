@@ -13,7 +13,7 @@ class IndexPage extends Component {
 
     this.state = {
       todayIs: "",
-      isBingo: false,
+      showContent: false,
       isLastContent: false
     }
   }
@@ -23,9 +23,9 @@ class IndexPage extends Component {
     this.setState({ todayIs: todayIs });
   }
 
-  bingoBango = (event) => {
+  showContentView = (event) => {
     event.preventDefault();
-    this.setState({ isBingo: true });
+    this.setState({ showContent: true });
 
     const data = this.props.data.allGoogleSheet1Sheet.edges;
     this.filterContent(data);
@@ -70,31 +70,18 @@ class IndexPage extends Component {
   }
 
   reset = () => {
-    this.setState({ isBingo: false, isLastContent: false });
+    this.setState({ showContent: false, isLastContent: false });
     this.filterContent(this.state.savedContent);
   }
 
   render() {
-    if (this.state.isLastContent) {
+    // show either the splash screen or content view
+    if (!this.state.isLastContent) {
       return (
-        <Layout showHeader={this.state.isBingo} reset={this.reset} isLastContent={this.state.isLastContent}>
-          <SEO title="Um What Day Is It" />
-
-          <main className="end">
-            <div className="end-container">
-              <h2>Check back tomorrow and find out what day it is.</h2>
-              {/* <h3>I wonder what it'll be 🤔</h3> */}
-            </div>
-          </main>
-
-        </Layout>
-      )
-    } else {
-      return (
-        <Layout showHeader={this.state.isBingo} reset={this.reset}>
+        <Layout showHeader={this.state.showContent} reset={this.reset}>
           <SEO title="Home" />
           {
-            this.state.isBingo ?
+            this.state.showContent ?
               <main className="content">
                 <DayContent
                   data={this.state.currentContent.node}
@@ -105,9 +92,21 @@ class IndexPage extends Component {
               :
               <main>
                 <h1>Um What Day Is It?</h1>
-                <button id="" onClick={this.bingoBango}>Let's find out</button>
+                <button id="" onClick={this.showContentView}>Let's find out</button>
               </main>
           }
+        </Layout>
+      )
+    } else {
+      // show out of content message
+      return (
+        <Layout showHeader={this.state.showContent} reset={this.reset} isLastContent={this.state.isLastContent}>
+          <SEO title="Um What Day Is It" />
+          <main className="end">
+            <div className="end-container">
+              <h2>Check back tomorrow and find out what day it is.</h2>
+            </div>
+          </main>
         </Layout>
       )
     }
