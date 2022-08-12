@@ -27,7 +27,7 @@ class IndexPage extends Component {
     event.preventDefault();
     this.setState({ showContent: true });
 
-    const data = this.props.data.allGoogleSheet1Sheet.edges;
+    const data = this.props.pageContext.data;
     this.filterContent(data);
   }
 
@@ -35,7 +35,7 @@ class IndexPage extends Component {
     const dayOfWeek = this.state.todayIs.toUpperCase();
 
     // filter by day, only keep the day
-    const filteredData = data.filter(content => content.node.dayOfWeek.toUpperCase() === dayOfWeek);
+    const filteredData = data.filter(content => content.dayOfWeek.toUpperCase() === dayOfWeek);
 
     // let's save all of today's content in state
     this.setState({ savedContent: filteredData });
@@ -84,7 +84,7 @@ class IndexPage extends Component {
             this.state.showContent ?
               <main className="content">
                 <DayContent
-                  data={this.state.currentContent.node}
+                  data={this.state.currentContent}
                   todayIs={this.state.todayIs}
                 />
                 <button id="" onClick={this.getRandomContent}>Show me another</button>
@@ -114,21 +114,3 @@ class IndexPage extends Component {
 }
 
 export default IndexPage;
-
-// GraphQL query to our spreadsheet
-export const query = graphql`
-query {
-  allGoogleSheet1Sheet {
-    edges {
-      node {
-        id
-        dayOfWeek
-        mediaLink
-        mediaType
-        message
-        alt
-      }
-    }
-  }
-}
-`;
