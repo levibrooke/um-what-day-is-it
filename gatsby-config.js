@@ -32,14 +32,6 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-source-google-spreadsheets",
-      options: {
-          spreadsheetId: `${process.env.SPREADSHEET_ID}`,
-          worksheetTitle: `Sheet1`,
-          credentials: JSON.parse(`${process.env.CREDS}`)
-      }
-    },
-    {
       resolve: `gatsby-plugin-sass`,
       options: {
         sassOptions: {
