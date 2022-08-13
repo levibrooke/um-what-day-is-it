@@ -1,6 +1,10 @@
 const axios = require("axios");
 
-const endpoint = "http://127.0.0.1:8000";
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
+const endpoint = process.env.ENDPOINT;
 
 const getContent = () => {
   try {
