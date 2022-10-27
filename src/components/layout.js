@@ -47,7 +47,7 @@ const Layout = (props) => {
             <p>Built by <a href="https://levibrooke.com" target="_blank" rel="noopener noreferrer">Levi Porter</a> on a Sunday</p>
           </div>
           <div className="footer-right">
-            <p>Want to submit content? <a href="mailto:levi@levibrooke.com" target="_blank">Email me</a></p>
+            <p>Want to submit content? <a href="mailto:levi@levibrooke.com" target="_blank" rel="noreferrer">Email me</a></p>
           </div>
         </footer>
       }

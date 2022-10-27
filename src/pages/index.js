@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import { graphql } from "gatsby"
 
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 import Layout from "../components/layout";
 import DayContent from "../components/day-content";
 
@@ -37,49 +37,43 @@ class IndexPage extends Component {
     // filter by day, only keep the day
     const filteredData = data.filter(content => content.node.dayOfWeek.toUpperCase() === dayOfWeek);
 
-    // let's save all of today's content in state
-    this.setState({ savedContent: filteredData });
-
     // randomly select content
     const randomIndex = Math.floor(Math.random() * filteredData.length);
     const todaysContent = filteredData[randomIndex];
 
-    this.setState({ allContent: filteredData, currentContent: todaysContent });
+    this.setState({ allTodaysContent: filteredData, currentContent: todaysContent });
   }
 
   getRandomContent = () => {
-    let contentInState = this.state.allContent;
+    let contentInState = this.state.allTodaysContent;
     let currentContent = this.state.currentContent;
     let currentContentIndex = contentInState.indexOf(currentContent);
     contentInState.splice(currentContentIndex, 1)
 
-    // if we're at last content flip flag
+    // if we're at last content node flip flag
     if (contentInState.length === 0) {
       this.setState({ isLastContent: true });
       return;
     }
 
-    // filter by day, only keep the day
+    // randomly select content node from todays content
     if (contentInState.length > 0) {
-
-      // randomly select content
       const randomIndex = Math.floor(Math.random() * contentInState.length);
       const todaysContent = contentInState[randomIndex];
-      this.setState({ allContent: contentInState, currentContent: todaysContent });
+      this.setState({ allTodaysContent: contentInState, currentContent: todaysContent });
     }
   }
 
   reset = () => {
     this.setState({ showContent: false, isLastContent: false });
-    this.filterContent(this.state.savedContent);
   }
 
   render() {
-    // show either the splash screen or content view
+    // show either the welcome screen or content view
     if (!this.state.isLastContent) {
       return (
         <Layout showHeader={this.state.showContent} reset={this.reset}>
-          <SEO title="Home" />
+          <Seo title="Home" />
           {
             this.state.showContent ?
               <main className="content">
@@ -89,7 +83,7 @@ class IndexPage extends Component {
                 />
                 <button id="" onClick={this.getRandomContent}>Show me another</button>
               </main>
-              :
+            :
               <main>
                 <h1>Um What Day Is It?</h1>
                 <button id="" onClick={this.showContentView}>Let's find out</button>
@@ -101,7 +95,7 @@ class IndexPage extends Component {
       // show out of content message
       return (
         <Layout showHeader={this.state.showContent} reset={this.reset} isLastContent={this.state.isLastContent}>
-          <SEO title="Um What Day Is It" />
+          <Seo title="Um What Day Is It" />
           <main className="end">
             <div className="end-container">
               <h2>Check back tomorrow and find out what day it is.</h2>
