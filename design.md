@@ -77,6 +77,7 @@ This meant that I did not have to worry about asset hosting. However, the applic
 
 ### The CMS
 This is what the content looks like in Google Sheets:
+
 ![image](./static/google-spreadsheets-cms.png)
 
 ### Querying the Data
@@ -108,12 +109,21 @@ Since the application is sourcing the data at build time, I needed a way to trig
 
 With Google Sheets, you can accomplish this by using the Apps Script extension. Using the extension, I was able to write a script that would send a POST request to the Netlify webhook. And all this is triggered simply by clicking a menu button in my Google Sheet.
 
-## Presentation Layer
-Since the goal was to build a simple, native-like web application, there is not much complexity with the frontend. There are three view states that the application can be in:
+## View Layer
+Using React and the content made available by the data layer, I built a simple frontend application. There are three view states that the application can be in. Each of these views are conditionally rendered in the Index component.
 
-1. A welcome view
-2. A content view 
-3. An out of content view
+#### 1. A welcome view
+
+![Welcome view](./static/view-1.png)
+
+#### 2. A content view 
+
+![Content view](./static/view-2.png)
+
+#### 3. An out of content view
+
+![Out of content view](./static/view-3.png)
+
 
 ### Component Structure
 This diagram describes the structure of the React components and how the Google Sheet data flows:
@@ -129,11 +139,12 @@ This diagram describes the structure of the React components and how the Google 
 ### Styling
 - Color scheme
 - Font choices
-- Utilized SCSS for all styling
+- SCSS for all styles
 - Responsive
 
 ## Opportunities
 1. Convert class component into a functional component utilizing React hooks.
 2. Test coverage to detect issues such as content availability.
 
-## Questions?
+## Questions
+Do you have any questions for me?
