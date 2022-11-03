@@ -3,6 +3,8 @@
 # Um What Day Is It?
 Because seriously, what day is it? 🤔
 
+https://umwhatdayisit.com
+
 ## Introduction
 Hello! My name is Levi Porter and I'm a fullstack software engineer.
 
@@ -12,7 +14,7 @@ Hello! My name is Levi Porter and I'm a fullstack software engineer.
 
 ### Experience
 - 1 year as a contractor working for digital agencies
-- 3 years as SDE at Amazon Web Services on the Sign-in Team
+- 3 years as a SDE at Amazon Web Services on the Sign-in Team
 - Previous experience working in digital marketing
 - Served in the US Coast Guard
 
@@ -37,9 +39,24 @@ In August 2022, I revisited the project with the goal of using it as a sandbox t
 This document will focus on the design of the original version, but you can [learn more about version 2.0 here.](https://github.com/levibrooke/um-what-day-is-it/tree/rest-backend)
 
 ## Tech Stack
-- Frontend: Gatsby as a React-based static site generator
-- Backend: Google Sheets as CMS (Gatsby plugin)
+- Frontend: Gatsby framework
+- Backend: Google Sheets as CMS
 - Hosting: Netlify
+
+### My Approach
+I chose this stack for the following reasons:
+- Familiarity
+- Build upon existing knowlege 
+- Gatsby is React-based
+- Static site generator
+- Large plugin library
+- Great documentation
+- Cost
+- Netlify features:
+  - Domain setup
+  - Branch deploys
+  - Environment variables
+  - Webhooks
 
 ### Other Options Considered
 - Create React App
@@ -132,8 +149,8 @@ This diagram describes the structure of the React components and how the Google 
 
 ### Event Methods
 1. ComponentDidMount: Use utility function to determine the day and set in state.
-2. Show Content View: Pass all Google Sheet data into filter function. Data for the day is set in state, current content is randomly selected.
-3. Show New Random Content: Previous content is removed from state. New content is randomly selected from remaining content for the day.
+2. Show Content View: Pass all Google Sheet data into a filter function. Data for the day is set in state, current content node is randomly selected.
+3. Get Random Content: Previous content node is removed from state. New content node is randomly selected from remaining content for the day.
 4. Reset: Flip flags to render welcome view.
 
 ### Styling
