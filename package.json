@@ -4,7 +4,6 @@
   "description": "Because seriously, what day is it?",
   "version": "0.1.0",
   "author": "Levi Porter <levi@levibrooke.com>",
-  "license": "0BSD",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
