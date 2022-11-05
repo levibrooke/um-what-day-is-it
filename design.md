@@ -5,19 +5,6 @@ Because seriously, what day is it? 🤔
 
 https://umwhatdayisit.com
 
-## Introduction
-Hello! My name is Levi Porter and I'm a fullstack software engineer.
-
-### Education
-- DevLeague - JavaScript & Node.js
-- Code Fellows - Java
-
-### Experience
-- 1 year as a contractor working for digital agencies
-- 3 years as a SDE at Amazon Web Services on the Sign-in Team
-- Previous experience working in digital marketing
-- Served in the US Coast Guard
-
 ## Background
 In April 2020, I was inspired to build a small, fun project to answer a question that it seemed many people had during the repetitiveness of the pandemic - Um What Day Is It?
 

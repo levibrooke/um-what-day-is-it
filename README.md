@@ -11,6 +11,8 @@ Built in early 2020, this project was a fun way to answer the question a lot of 
 - Backend: Google Sheets as CMS
 - Hosting: Netlify
 
+> You can [read a detailed design doc for this project here.](./design.md)
+
 ## New Backend (Aug 2022)
 I recently revisited this project and decided to write a new backend using a stack that I didn't have much experience with. I chose to build a REST API with Django, a Python web framework, and MongoDB as the database.
 
